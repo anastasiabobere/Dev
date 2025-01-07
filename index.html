@@ -8,7 +8,7 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <form action="#" id="form">
+    <form action="letter.html" method="get" id="form">
       <label for="name">Jūsu vārds?</label>
       <input type="text" name="name" id="name" />
 
@@ -33,13 +33,38 @@
       <label for="sound">Pazīstama skaņa vai dzīvnieka skaņa</label>
       <input type="text" name="sound" id="sound" />
 
-      <label for="economic">Pieminēt kādu valsts ekonomikas problēmu</label>
+      <label for="economic">Pieminēt kādu valsts ministriju </label>
       <input type="text" name="economic" id="economic" />
 
       <label for="friend">Pieminēt kādu jūsu kaimiņšu vai draugu</label>
       <input type="text" name="friend" id="friend" />
+      <label for="technology2"
+        >Izvēlēts kādu citu tehnoloģiju produkts, piemēram, mākslīgā intelekta,
+        robotiem utt.</label
+      >
+      <input type="text" name="technology2" id="technology2" />
 
-      <button type="submit">Nosūtīt</button>
+      <label for="job">Pieminēt kādu profesiju</label>
+      <input type="text" name="job" id="job" />
+
+      <label for="problem">Pieminēt kādu problēmu</label>
+      <input type="text" name="problem" id="problem" />
+      <label for="woman"
+        >Sieviete <input type="radio" name="gender" id="woman" value="woman"
+      /></label>
+
+      <label for="man"
+        >Virietis<input type="radio" name="gender" id="man" value="man"
+      /></label>
+      <label for="technology_celebrity"
+        >Pieminēt kādu zīnamo tehnoloģiju cilvēku, piemēram, Steve Jobs,
+        Katherine Johnson, Hedy Lamarr utt.
+      </label>
+      <input
+        type="text"
+        name="technology_celebrity"
+        id="technology_celebrity" />
+      <button type="submit" id="button">Nosūtīt</button>
     </form>
   </body>
 </html>
