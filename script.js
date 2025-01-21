@@ -20,58 +20,50 @@ window.onload = function () {
   const technology_celebrity = params.get("technology_celebrity");
   const problem = params.get("problem");
   const gender = params.get("gender");
+  const signature = params.get("signature");
   output_woman = `<h1>Labdien, ${name}. Jūsu vēstule ir gatava! </h1>
-  <p id="myParagraph" > Sveicināts, galvenais tehnoloģiju ministrs!
-
-Esmu ${name}, mākslīgā intelekta entuziaste un pašreizējā ${club} prezidente. Man ir ļoti svarīga problēma, kuru esmu pieņēmusi ar lielu atbildību, tāpēc vēlos vērsties pie Jums pēc palīdzības.
-
-Pēdējā laikā  ${region} ir saskārusies ar lieliem izaicinājumiem. Mēs esam pilnībā atkarīgi no ${technology}, un diemžēl mūsu rīki vairs nespēj darboties pareizi. Piemēram, mūsu jaunākais ${object} 
-ir sācis izdot dīvainas skaņas, kas ļoti atgādina ${sound}, un mēs neesam pārliecināti, vai tas ir normāli!
-
-Tāpēc lūdzu Jūsu palīdzību, lai varētu iegūt ${money} eiro un ātrāk risināt šo jautājumu. Mums steidzami nepieciešams iegādāties ${technology2}, kas varētu palīdzēt atjaunot mūsu sistēmu un mazināt šo traucējumu.
-
-Es zinu, ka mūsu valsts budžets ir ${economic}, tomēr esmu pārliecināta, ka šis ieguldījums būs kā īsta revolūcija nākotnē! Mūsu komanda ir gatava arī uzsākt atbalsta programmu, 
-kas palīdzētu visiem iedzīvotājiem izprast šo tehnoloģiju un izmantot to ikdienā.
-
-Piemēram, ${friend}, kurš nekad nav sapratis, kā darbojas ${technology2}, beidzot varēs kļūt par ${technology_celebrity}, kad iegūs šīs zināšanas!
-
-Pati esmu ${job}, un ikdienā ļoti daudz izmantoju ${technology2}, lai palīdzētu risināt ${problem}. Mūsu galvenā problēma ir tā, ka tehnoloģijas attīstās ātrāk, nekā mēs spējam tās saprast, un mēs nevaram to atļauties!
-
-Tāpēc, cienījamais ministrs, ļoti lūdzu Jūsu palīdzību, lai nodrošinātu ${money} eiro.
-
-Ar cieņu,  
-${name} un visi ${club} dalībnieki.
+<p id="myParagraph">
+    Sveicināts, galvenais tehnoloģiju ministrs!
+     Esmu ${name}, mākslīgā intelekta entuziaste un pašreizējā ${club} prezidente. 
+     Vēršos pie Jums, jo mūsu reģionam – ${region} – ir nepieciešama palīdzība. Mēs esam pilnībā atkarīgi no ${technology}, 
+     taču nesen esam saskārušies ar problēmām. Piemēram, mūsu jaunākais ${object} ir sācis izdot skaņas, kas atgādina ${sound}, 
+     un mēs vairs neesam pārliecināti par tā drošību. Lai atrisinātu šo jautājumu, mēs lūdzam Jūsu finansiālu atbalstu ${money} eiro 
+     apmērā, lai iegādātos nepieciešamo aprīkojumu un atjaunotu darbību. Mēs saprotam, ka valsts budžetu kontrolē ${economic} 
+     ministrija, tomēr uzskatām, ka šis ieguldījums palīdzētu mums būt efektīvākiem un konkurētspējīgākiem nākotnē. 
+     Piemēram, mana draudzene ${friend}, kura līdz šim nav izpratusi ${technology}, varētu attīstīties un kļūt par nākamo
+      ${technology_celebrity}. Pati esmu ${job}, un savā ikdienā bieži izmantoju ${technology}, lai risinātu ${problem} problēmu. 
+      Diemžēl bez modernām tehnoloģijām mēs riskējam atpalikt. Cienījamais ministrs, ceram uz Jūsu sapratni un atbalstu mūsu
+       iniciatīvai.</br> Ar cieņu, ${name} un visi ${club} dalībnieki.
 </p>
- <button onclick="copyText()">Kopet tekstu</button>
+<button onclick="copyText()" class="btn">Kopēt tekstu</button>
 `;
 
   output_man = `
-  <h1>Labdien, ${name}. Jūsu vēstule ir gatava! </h1>
-  <p>Sveicināts, galvenais tehnoloģiju ministrs!
-
-Esmu ${name}, mākslīgā intelekta entuziasts un pašreizējais ${club} prezidents. Man ir ļoti svarīga problēma, kuru esmu pieņēmis ar lielu atbildību, tāpēc vēlos vērsties pie Jums pēc palīdzības.
-
-Pēdējā laikā mūsu valsts ${region} ir saskārusies ar lieliem izaicinājumiem. Mēs esam pilnībā atkarīgi no ${technology}, un diemžēl mūsu rīki vairs nespēj darboties pareizi. Piemēram, mūsu jaunākais ${object} 
-ir sācis izdot dīvainas skaņas, kas ļoti atgādina ${sound}, un mēs neesam pārliecināti, vai tas ir normāli!
-
-Tāpēc lūdzu Jūsu palīdzību, lai varētu iegūt ${money} un ātrāk risināt šo jautājumu. Mums steidzami nepieciešams iegādāties ${technology2}, kas varētu palīdzēt atjaunot mūsu sistēmu un mazināt šo traucējumu.
-
-Es zinu, ka mūsu valsts budžets ir ${economic}, tomēr esmu pārliecināts, ka šis ieguldījums būs kā īsta revolūcija nākotnē! Mūsu komanda ir gatava arī uzsākt atbalsta programmu, 
-kas palīdzētu visiem iedzīvotājiem izprast šo tehnoloģiju un izmantot to ikdienā.
-
-Piemēram, ${friend}, kurš nekad nav sapratis, kā darbojas ${technology2}, beidzot varēs kļūt par ${technology_celebrity}, kad iegūs šīs zināšanas!
-
-Pats esmu ${job}, un ikdienā ļoti daudz izmantoju ${technology2}, lai palīdzētu risināt ${problem}. Mūsu galvenā problēma ir tā, ka tehnoloģijas attīstās ātrāk, nekā mēs spējam tās saprast, un mēs nevaram to atļauties!
-
-Tāpēc, cienījamais ministrs, ļoti lūdzu Jūsu palīdzību, lai nodrošinātu ${money}.
-
-Ar cieņu,  
-${name} un visi ${club} dalībnieki.
-</p>`;
+ <h1>Labdien, ${name}. Jūsu vēstule ir gatava! </h1>
+<p id="myParagraph">
+    Sveicināts, galvenais tehnoloģiju ministrs! Esmu ${name}, 
+    ${club} prezidents un aizrautīgs tehnoloģiju entuziasts. Vēršos pie Jums, jo mūsu reģionam – ${region} – 
+    ir nepieciešama palīdzība. Mēs esam pilnībā atkarīgi no ${technology}, taču nesen esam saskārušies ar problēmām.
+     Piemēram, mūsu jaunākais ${object} ir sācis izdot skaņas, kas atgādina ${sound}, un mēs vairs neesam pārliecināti par tā drošību.
+      Lai atrisinātu šo jautājumu, mēs lūdzam Jūsu finansiālu atbalstu ${money} eiro apmērā, lai iegādātos nepieciešamo aprīkojumu un atjaunotu darbību. 
+      Mēs saprotam, ka valsts budžetu kontrolē ${economic} ministrija, tomēr uzskatām, ka šis ieguldījums palīdzētu mums būt efektīvākiem un konkurētspējīgākiem nākotnē. 
+      Piemēram, mans draugs ${friend}, kurš līdz šim nav izpratis ${technology}, varētu attīstīties un kļūt par nākamo ${technology_celebrity}. 
+      Pats esmu ${job}, un savā ikdienā bieži izmantoju ${technology}, lai risinātu ${problem} problēmu.
+       Diemžēl bez modernām tehnoloģijām mēs riskējam atpalikt. Cienījamais ministrs, ceram uz Jūsu sapratni un atbalstu mūsu iniciatīvai.
+ </br> Ar cieņu, ${name} un visi ${club} dalībnieki.
+</p>
+<button onclick="copyText()" class="btn">Kopēt tekstu</button>`;
   // Display the collected inputs
   if (gender === "woman") {
     document.getElementById("main").innerHTML = output_woman;
   } else {
     document.getElementById("main").innerHTML = output_man;
+  }
+  if (signature) {
+    const signatureImg = document.createElement("img");
+    signatureImg.src = signature;
+    signatureImg.alt = "Signature";
+    signatureImg.id = "signature";
+    document.getElementById("main").appendChild(signatureImg);
   }
 };

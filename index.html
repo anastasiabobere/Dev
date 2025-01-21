@@ -6,65 +6,162 @@
     <title>Vēstule tehnologiju ministram</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+    <style>
+      canvas {
+        border: 2px solid #000;
+        background-color: #fff;
+        border-radius: 5px;
+        display: block;
+        margin: 10px auto;
+      }
+      .btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        display: inline-block;
+      }
+    </style>
   </head>
   <body>
     <form action="letter.html" method="get" id="form">
       <label for="name">Jūsu vārds?</label>
       <input type="text" name="name" id="name" />
 
-      <label for="club">Kādā klubā Jūs kaut kād piedalījāties?</label>
+      <label for="club">Kādā klubā Jūs esat piedalījies?</label>
       <input type="text" name="club" id="club" />
 
-      <label for="region">Jēbkurš valsts reģions. Kurzeme, Latgale utt.</label>
+      <label for="region"
+        >Norādiet jebkuru valsts reģionu (Kurzeme, Latgale utt.).</label
+      >
       <input type="text" name="region" id="region" />
 
-      <label for="technology"
-        >Izvēlēts tehnoloģiju produkts, piemēram, mākslīgā intelekta, robotiem
-        utt. (no kā?)</label
-      >
+      <label for="technology">Kāda tehnoloģija ir Jūsu uzmanības centrā?</label>
       <input type="text" name="technology" id="technology" />
 
-      <label for="money">Cik euro Jūs gribāt nopelnit</label>
+      <label for="money">Cik eiro Jūs vēlaties saņemt?</label>
       <input type="text" name="money" id="money" />
 
-      <label for="object">Kāds objekts vai tehnoloģija</label>
+      <label for="object">Nosauciet kādu tehnoloģiju vai objektu.</label>
       <input type="text" name="object" id="object" />
 
-      <label for="sound">Pazīstama skaņa vai dzīvnieka skaņa</label>
+      <label for="sound">Pazīstama skaņa vai dzīvnieka skaņa.</label>
       <input type="text" name="sound" id="sound" />
 
-      <label for="economic">Pieminēt kādu valsts ministriju </label>
+      <label for="economic">Pieminiet kādu valsts ministriju.</label>
       <input type="text" name="economic" id="economic" />
 
-      <label for="friend">Pieminēt kādu jūsu kaimiņšu vai draugu</label>
+      <label for="friend">Nosauciet kādu Jūsu draugu vai kaimiņu.</label>
       <input type="text" name="friend" id="friend" />
-      <label for="technology2"
-        >Izvēlēts kādu citu tehnoloģiju produkts, piemēram, mākslīgā intelekta,
-        robotiem utt.</label
-      >
-      <input type="text" name="technology2" id="technology2" />
 
-      <label for="job">Pieminēt kādu profesiju</label>
+      <label for="job">Pieminiet kādu profesiju.</label>
       <input type="text" name="job" id="job" />
 
-      <label for="problem">Pieminēt kādu problēmu</label>
+      <label for="problem">Norādiet kādu problēmu.</label>
       <input type="text" name="problem" id="problem" />
-      <label for="woman"
-        >Sieviete <input type="radio" name="gender" id="woman" value="woman"
-      /></label>
 
-      <label for="man"
-        >Virietis<input type="radio" name="gender" id="man" value="man"
-      /></label>
+      <label>Sieviete <input type="radio" name="gender" value="woman" /></label>
+      <label>Vīrietis <input type="radio" name="gender" value="man" /></label>
+
       <label for="technology_celebrity"
-        >Pieminēt kādu zīnamo tehnoloģiju cilvēku, piemēram, Steve Jobs,
-        Katherine Johnson, Hedy Lamarr utt.
-      </label>
+        >Nosauciet kādu zināmu tehnoloģiju personību (piemēram, Steve Jobs, Hedy
+        Lamarr).</label
+      >
       <input
         type="text"
         name="technology_celebrity"
         id="technology_celebrity" />
-      <button type="submit" id="button">Nosūtīt</button>
+
+      <!-- Signature Section -->
+      <h3>Paraksts</h3>
+      <canvas id="signatureCanvas" width="500" height="200"></canvas>
+      <button type="button" class="btn" onclick="clearSignature()">
+        Notīrīt
+      </button>
+      <button type="button" class="btn" onclick="saveSignature()">
+        Saglabāt
+      </button>
+      <input type="hidden" name="signature" id="signatureInput" />
+
+      <button type="submit" class="btn">Nosūtīt</button>
     </form>
+
+    <script>
+      const canvas = document.getElementById("signatureCanvas");
+      const signatureInput = document.getElementById("signatureInput");
+      const ctx = canvas.getContext("2d");
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+
+      // Set up drawing style
+      ctx.strokeStyle = "#000";
+      ctx.lineWidth = 2;
+      ctx.lineCap = "round";
+
+      function getCoordinates(event) {
+        const rect = canvas.getBoundingClientRect();
+        let x, y;
+
+        if (event.touches && event.touches[0]) {
+          x = event.touches[0].clientX - rect.left;
+          y = event.touches[0].clientY - rect.top;
+        } else {
+          x = event.clientX - rect.left;
+          y = event.clientY - rect.top;
+        }
+
+        return { x, y };
+      }
+
+      function startDrawing(event) {
+        isDrawing = true;
+        const coords = getCoordinates(event);
+        lastX = coords.x;
+        lastY = coords.y;
+      }
+
+      function draw(event) {
+        if (!isDrawing) return;
+        event.preventDefault();
+
+        const coords = getCoordinates(event);
+
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(coords.x, coords.y);
+        ctx.stroke();
+
+        lastX = coords.x;
+        lastY = coords.y;
+      }
+
+      function stopDrawing() {
+        isDrawing = false;
+      }
+
+      function clearSignature() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        signatureInput.value = ""; // Clear the hidden input value
+      }
+
+      function saveSignature() {
+        const dataURL = canvas.toDataURL("image/png");
+        signatureInput.value = dataURL; // Save signature as a base64 string in the hidden input field
+        alert("Paraksts saglābats!"); // Alert message after saving the signature
+      }
+
+      // Mouse Events
+      canvas.addEventListener("mousedown", startDrawing);
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mouseup", stopDrawing);
+      canvas.addEventListener("mouseout", stopDrawing);
+
+      // Touch Events
+      canvas.addEventListener("touchstart", startDrawing);
+      canvas.addEventListener("touchmove", draw);
+      canvas.addEventListener("touchend", stopDrawing);
+      canvas.addEventListener("touchcancel", stopDrawing);
+    </script>
   </body>
 </html>
