@@ -10,4 +10,16 @@
   <body>
     <div id="main"></div>
   </body>
+  <script>
+    function copyText() {
+      var text = document.getElementById("myParagraph").innerText;
+      var textArea = document.createElement("textarea");
+      textArea.value = text;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
+      alert("Teksts nokopēts!");
+    }
+  </script>
 </html>
