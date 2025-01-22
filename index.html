@@ -81,7 +81,6 @@
       <button type="button" class="btn" onclick="saveSignature()">
         Saglabāt
       </button>
-      <input type="hidden" name="signature" id="signatureInput" />
 
       <button type="submit" class="btn">Nosūtīt</button>
     </form>
@@ -147,8 +146,13 @@
 
       function saveSignature() {
         const dataURL = canvas.toDataURL("image/png");
-        signatureInput.value = dataURL; // Save signature as a base64 string in the hidden input field
-        alert("Paraksts saglābats!"); // Alert message after saving the signature
+        try {
+          localStorage.setItem("signature", dataURL);
+          alert("Paraksts saglabāts!");
+        } catch (e) {
+          alert("Kļūda saglabājot parakstu!");
+          console.error("Error saving signature:", e);
+        }
       }
 
       // Mouse Events
