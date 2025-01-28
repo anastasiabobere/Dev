@@ -47,13 +47,13 @@ window.onload = function () {
 
   const output_man = `
   <h1>Labdien, ${name}. Jūsu vēstule ir gatava!</h1>
-  <p id="animatedText"></p>
+  <p id="animatedText" class="myParagraph"></p>
   <button onclick="copyText()" class="btn">Kopēt tekstu</button>
   `;
 
   const output_woman = `
   <h1>Labdien, ${name}. Jūsu vēstule ir gatava!</h1>
-  <p id="animatedText"></p>
+  <p id="animatedText" class="myParagraph"></p>
   <button onclick="copyText()" class="btn">Kopēt tekstu</button>
   `;
 

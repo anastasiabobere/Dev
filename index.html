@@ -28,33 +28,33 @@
       <label for="name">Jūsu vārds?</label>
       <input type="text" name="name" id="name" />
 
-      <label for="club">Kādā klubā Jūs esat piedalījies?</label>
+      <label for="club">Kādā ārpus skolas pulciņā Jūs esat piedalījies?</label>
       <input type="text" name="club" id="club" />
 
       <label for="region"
-        >Norādiet jebkuru valsts reģionu (Kurzeme, Latgale utt.).</label
+        >Norādiet valsts reģionu, kurā dzīvojiet (Kurzeme, Latgale utt.).</label
       >
       <input type="text" name="region" id="region" />
 
       <label for="technology">Kāda tehnoloģija ir Jūsu uzmanības centrā?</label>
       <input type="text" name="technology" id="technology" />
 
-      <label for="money">Cik eiro Jūs vēlaties saņemt?</label>
+      <label for="money">Cik lielu algu vēlaties saņemt?</label>
       <input type="text" name="money" id="money" />
 
-      <label for="object">Nosauciet kādu tehnoloģiju vai objektu.</label>
+      <label for="object">Uzraksti kādu tehnoloģiju vai objektu.</label>
       <input type="text" name="object" id="object" />
 
       <label for="sound">Pazīstama skaņa vai dzīvnieka skaņa.</label>
       <input type="text" name="sound" id="sound" />
 
-      <label for="economic">Pieminiet kādu valsts ministriju.</label>
+      <label for="economic">Nosauc kādu valsts ministriju.</label>
       <input type="text" name="economic" id="economic" />
 
       <label for="friend">Nosauciet kādu Jūsu draugu vai kaimiņu.</label>
       <input type="text" name="friend" id="friend" />
 
-      <label for="job">Pieminiet kādu profesiju.</label>
+      <label for="job">Miniet kādu profesiju.</label>
       <input type="text" name="job" id="job" />
 
       <label for="problem">Norādiet kādu problēmu.</label>
@@ -64,9 +64,8 @@
       <label>Vīrietis <input type="radio" name="gender" value="man" /></label>
 
       <label for="technology_celebrity"
-        >Nosauciet kādu zināmu tehnoloģiju personību (piemēram, Steve Jobs, Hedy
-        Lamarr).</label
-      >
+        >Nosauciet kādu zināmu slavenību.
+      </label>
       <input
         type="text"
         name="technology_celebrity"
@@ -155,13 +154,11 @@
         }
       }
 
-      // Mouse Events
       canvas.addEventListener("mousedown", startDrawing);
       canvas.addEventListener("mousemove", draw);
       canvas.addEventListener("mouseup", stopDrawing);
       canvas.addEventListener("mouseout", stopDrawing);
 
-      // Touch Events
       canvas.addEventListener("touchstart", startDrawing);
       canvas.addEventListener("touchmove", draw);
       canvas.addEventListener("touchend", stopDrawing);
