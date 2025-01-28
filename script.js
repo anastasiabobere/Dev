@@ -22,7 +22,7 @@ window.onload = function () {
   const gender = params.get("gender");
   const signature = localStorage.getItem("signature");
 
-  const letterText_man = `Sveicināts, galvenais tehnoloģiju ministrs! Esmu ${name}, 
+  const letterText_man = `Sveicināts, galvenais tehnoloģiju ministr! Esmu ${name}, 
     ${club} prezidents un aizrautīgs tehnoloģiju entuziasts. Vēršos pie Jums, jo mūsu reģionam – ${region} – 
     ir nepieciešama palīdzība. Mēs esam pilnībā atkarīgi no ${technology}, taču nesen esam saskārušies ar problēmām.
      Piemēram, mūsu jaunākais ${object} ir sācis izdot skaņas, kas atgādina ${sound}, un mēs vairs neesam pārliecināti par tā drošību.
@@ -33,7 +33,7 @@ window.onload = function () {
        Diemžēl bez modernām tehnoloģijām mēs riskējam atpalikt. Cienījamais ministrs, ceram uz Jūsu sapratni un atbalstu mūsu iniciatīvai.
  Ar cieņu, ${name} un visi ${club} dalībnieki.`;
 
-  const letterText_woman = ` Sveicināts, galvenais tehnoloģiju ministrs!
+  const letterText_woman = ` Sveicināts, galvenais tehnoloģiju ministr!
      Esmu ${name}, mākslīgā intelekta entuziaste un pašreizējā ${club} prezidente. 
      Vēršos pie Jums, jo mūsu reģionam – ${region} – ir nepieciešama palīdzība. Mēs esam pilnībā atkarīgi no ${technology}, 
      taču nesen esam saskārušies ar problēmām. Piemēram, mūsu jaunākais ${object} ir sācis izdot skaņas, kas atgādina ${sound}, 
