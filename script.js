@@ -42,7 +42,7 @@ window.onload = function () {
      ministrija, tomēr uzskatām, ka šis ieguldījums palīdzētu mums būt efektīvākiem un konkurētspējīgākiem nākotnē. 
      Piemēram, mana draudzene ${friend}, kura līdz šim nav izpratusi ${technology}, varētu attīstīties un kļūt par nākamo
       ${technology_celebrity}. Pati esmu ${job}, un savā ikdienā bieži izmantoju ${technology}, lai risinātu ${problem} problēmu. 
-      Diemžēl bez modernām tehnoloģijām mēs riskējam atpalikt. Cienījamais ministrs, ceram uz Jūsu sapratni un atbalstu mūsu
+      Diemžēl bez modernām tehnoloģijām mēs riskējam atpalikt. Cienījamais tehnoloģiju ministr, ceram uz Jūsu sapratni un atbalstu mūsu
        iniciatīvai.Ar cieņu, ${name} un visi ${club} dalībnieki.`;
 
   const output_man = `
